@@ -1,0 +1,16 @@
+*.pyc
+.idea
+.vscode
+venv/
+config/local*.cfg
+__pycache__/
+*.DS_Store
+node_modules/
+job_*.txt
+.pytest_cache/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+id_rsa
+*.pub

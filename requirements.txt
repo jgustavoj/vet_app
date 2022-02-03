@@ -1,0 +1,12 @@
+Flask-SQLAlchemy
+Flask
+PyMySQL
+requests
+gunicorn[gevent]
+PyJWT
+passlib
+pillow
+requests
+changelogs
+Werkzeug
+Flask-Login
