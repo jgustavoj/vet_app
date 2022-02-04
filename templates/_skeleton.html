@@ -1,0 +1,95 @@
+{#
+This file should provide the highest-level basic structure for EVERY page of a project.
+
+The primary purposes of this file are:
+
+1) Define dependencies (JS, CSS) in a single place, so a single project does not have
+multiple, possibly conflicting versions of e.g. jQuery, Bootstrap, Summernote, etc.
+When you want to include an external dependency from a CDN, do it here. External dependencies
+should always be opt-in via flags, unless they are definitely required on the vast majority of pages.
+Follow the patterns established in this file to set up these flags; see e.g. _SUMMERNOTE).
+
+2) Provide a consistent top-level block structure (meta, _head, _modals, _content, _javascript, etc.) that is available
+to all templates
+
+3) Handle boilerplate things that should be on every page, like meta tags, flash messages, and aliasing JS
+#}
+{#
+Available flags:
+Flag Default Notes
+============================================================================================================
+_PAGE (str) request.endpoint Used as default class on body (a way of uniquely identifying pages).
+_TITLE (str) None If set, prepends branding in <title> (e.g. Page Title | Branding)
+    _SUMMERNOTE (bool) False https://summernote.org/
+    _STUPIDTABLE (bool) False https://github.com/joequery/Stupid-Table-Plugin
+    _FULLCALENDAR (bool) False https://fullcalendar.io/docs
+    _CHARTJS (bool) False https://www.chartjs.org/
+    _PDFJS (bool) False https://mozilla.github.io/pdf.js/
+    #}
+    {%- if _PAGE is undefined -%}
+    {% set _PAGE = request.endpoint %}
+    {%- endif -%}
+    {#{% from 'macros/modals.html' import async_flash_modal, error_modal, flash_modal %}
+    {% from 'macros/navbar.html' import navbar %} #}
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {#
+        <meta name="theme-color" content="#0E3D51"> #}
+        {#
+        <link rel="shortcut icon" href="{{g.favicon|cloudfront}}"> #}
+        {% block meta %}{% endblock %}
+
+        <title>{% block full_title %}{% if _TITLE %}{{_TITLE}} | {% endif %}{{g.branding}}{% endblock %}</title>
+
+        {% block font %}
+        {# CHANGEME customize fonts #}
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
+            rel="stylesheet">
+        {% endblock %}
+
+        <link rel="stylesheet" href="//d3skzu0rvh4kr6.cloudfront.net/fontawesome5-rc5-9/css/all.min.css">
+
+        <!-- BS4 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        {% block primary_css %}{% endblock %}
+
+        {% block _head %}{% endblock %}
+    </head>
+    {#
+    DANGER
+    Only use data-g-user-* for superficial things; they could be modified in the inspector.
+    Never ever use data-g-user-id to identify a user to the backend.
+    #}
+
+    <body class="{{_PAGE|replace('.', '--')}} {{_BODYCLASS}}" data-g-user-id="{{g.user.user_id if g.user}}"
+        data-g-user-name="{{g.user.full_name if g.user}}">
+        {#{% for category, message in get_flashed_messages(with_categories=true) -%}
+        {{flash_modal(category, message, loop.index)}}
+        {% endfor %}
+        {{async_flash_modal()}}
+        {{error_modal()}} #}
+        {% block _modals %}{% endblock %}
+        {% block _content %}{% endblock %}
+        {% block body_end %}{% endblock %}
+
+        <!-- BS4 and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+        {% block _javascript %}{% endblock %}
+    </body>
+
+    </html>

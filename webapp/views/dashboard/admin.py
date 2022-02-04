@@ -39,7 +39,7 @@ def dashboard():
 
 @bp.route('/login', methods=['GET'])
 def login():
-    return 'This is login'
+    return render_template('dashboard/login.html')
     # if g.user:
     #     return redirect(url_for('admin.dashboard'))
     # return render_template('pm/login.html')

@@ -1,0 +1,11 @@
+{% macro youshallseepass(id=None, input_id=None, name='password', input_class='', placeholder="Password", match=None,
+vindicate_format=None, autofocus=False, autocomplete_off=False) %}
+<div {% if id %}id="{{id}}" {% endif %} class="youshallseepass">
+    <input {% if input_id %}id="{{input_id}}" {% endif %} type="password" {% if name is not none %}name="{{name}}" {%
+        endif %} class="form-control youshallseepass-input {{input_class}}" placeholder="{{placeholder or ''}}"
+        data-vindicate="required{% if vindicate_format %}|format:{{vindicate_format}}{% endif %}{% if match %}|match:{{match}}{% endif %}"
+        required {{'autofocus' if autofocus}} {{'autocomplete="off"' if autocomplete_off}}>
+    <span class="youshallseepass-toggler" role="button"><i class="youshallseepass-icon fa fa-eye"></i></span>
+</div>
+<small class="invalid-feedback"></small>
+{% endmacro %}

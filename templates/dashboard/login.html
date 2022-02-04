@@ -1,0 +1,136 @@
+{% set _TITLE = 'Sign In' %}
+{% set _BODYCLASS = 'login pt-0' %}
+{% extends '_skeleton.html' %}
+{% from 'macros/forms.html' import youshallseepass %}
+
+
+{% block _content %}
+<main class="container-fluid">
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom01">Email</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom01">First name</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Last name</label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+
+
+
+    {# <div class="row">
+        <header class="col-12 col-lg-6 text-center text-lg-left">
+            <div class="row logo-row">
+                {#<div class="col-3 col-sm-2 col-lg-3 col-xl-2">
+                    <a href="/"><img src="/static/images/tfc_logo_white_blue.png" class="img-fluid logo"
+                            alt="{{g.branding}}"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10 col-xl-9 mx-auto">
+                    <h1 class="mb-4">Hi.</h1>
+                    <div class="row">
+                        <div class="col-10 col-lg-9 ml-auto ml-lg-0 mr-auto">
+                            <p>Please log in to access the vet management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <svg class="img-fluid svg circles" width="100" height="100" viewbox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="79" cy="15" r="20" stroke="#ed4482" fill="transparent" />
+                <circle cx="93" cy="35" r="8" stroke="#f26248" fill="transparent" />
+                <circle cx="16" cy="96" r="26" stroke="#42bb83" fill="transparent" />
+            </svg> -->
+        </header>
+        <div class="col-12 col-lg-6 login-col d-lg-flex align-items-center bg-tertiary pt-4 pt-lg-0">
+            <div class="row">
+                <div class="col-10 col-lg-8 mx-auto">
+                    <form id="login-form" class="vindicate-form" action="" method="POST">
+                        <legend class="mb-4"><small>System Login</small></legend>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control form-control-lg fancy"
+                                value="{{request.form.get('email', '') if request.form}}" placeholder="Email Address"
+                                data-vindicate="required|format:email" autofocus>
+                            <small class="invalid-feedback"></small>
+                        </div>
+                        <div class="form-group">
+                            {{youshallseepass(input_id='password', input_class='form-control-lg fancy')}}
+                        </div>
+                        <div class="form-check">
+                            <input id="remember-me" class="form-check-input" type="checkbox" name="remember_me"
+                                {{'checked' if request.form and request.form.get('remember_me', False)}}>
+                            <label class="form-check-label" for="remember-me">Remember Me</label>
+                        </div>
+                        <button class="btn btn-primary btn-block py-2 mt-5 vindicate-form-submit"
+                            type="submit"><strong>Sign In</strong> <i class="fai far fa-arrow-right"></i></button>
+                    </form>
+                    <div class="text-center mt-2">
+                        Forgot Password?
+                        {# <a href="{{url_for('password.reset_request')}}" class="text-muted"><small>Forgot
+                                password?</small></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> #}
+</main>
+{% endblock %}
+
+{% block _javascript %}
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}
