@@ -40,8 +40,8 @@ Node.js is required in this project primarily for Webpack, which bundles and min
 1. (Recommended) Install [NVM](https://github.com/nvm-sh/nvm) to manage multiple node versions. If using Windows, install [`nvm-windows`](https://github.com/coreybutler/nvm-windows)
     * For `nvm-windows` it is recommended to use the installer found in `nvm-setup.zip` at https://github.com/coreybutler/nvm-windows/releases
 1. Install nodejs -- [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-    * As of 2020-11, node 14.15.0 LTS is confirmed to be working with this project
-    * If using NVM, use e.g. `nvm install 14.15.0` followed by `nvm use 14.15.0`
+    * As of 2022, node 14.15.4 LTS is confirmed to be working with this project
+    * If using NVM, use e.g. `nvm install 14.15.4` followed by `nvm use 14.15.4`
 1. Run `npm install` from the repository root directory to install all required node modules. This may take a few minutes.
     * There may be a warning message about security updates. `npm audit fix` should (hopefully) resolve these.
     
@@ -51,6 +51,18 @@ Node.js is required in this project primarily for Webpack, which bundles and min
     
     	`export NODE_PATH=$(npm root -g)`
 	
+    * Common error `npm WARN enoent ENOENT: no such file or directory, open 'C:\Users\Nuwanst\package.json'` 
+    * Follow this steps:
+  
+		a) Delete package.json and package-lock.json file
+
+		b) type `npm init`
+
+		c) type `npm install socket.io --save`
+
+		d) type `npm install`
+	
+  	
     * For Mac users and potential issues with No Xcode or CLT version detected, follow the following instructions:
     
 		a) First, get the location of the installed command-line tools by running the command below:
