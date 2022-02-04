@@ -25,13 +25,13 @@ After installation, open the XAMMP control panel and start the Apache and MySQL 
 
 ## Repo
 
-(If first time using git)
+<b> If first time using git </b>
 - When first starting new project make sure to initilize git with command 
 
     `git init`
 
-(else)
-Clone this repository with `git clone https://github.com/jgustavoj/vet_app.git `
+<b> Else </b>
+- Clone this repository with `git clone https://github.com/jgustavoj/vet_app.git `
 
 ## Node.js
 
