@@ -16,7 +16,5 @@
     "url": "https://github.com/jgustavoj/vet_app/issues"
   },
   "homepage": "https://github.com/jgustavoj/vet_app#readme",
-  "dependencies": {
-    "socket.io": "^4.4.1"
-  }
+  "dependencies": {}
 }
