@@ -3,52 +3,71 @@
 {% extends '_skeleton.html' %}
 {% from 'macros/forms.html' import youshallseepass %}
 
+{% block _head %}
+<style>
+    .login,
+    .image {
+        min-height: 100vh;
+    }
+
+    .bg-image {
+        background-image: url('../../static/images/white_wall.jpg');
+        background-size: cover;
+        background-position: center center;
+    }
+</style>
+{% endblock %}
 
 {% block _content %}
 <main class="container-fluid">
-    <form class="needs-validation" novalidate>
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <label for="validationCustom01">Email</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark"
-                    required>
-                <div class="valid-feedback">
-                    Looks good!
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <!-- The image half -->
+            <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+
+            <!-- The content half -->
+            <div class="col-md-6 bg-light">
+                <div class="login d-flex align-items-center py-5">
+
+                    <!-- Demo content-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 col-xl-7 mx-auto">
+                                <h3 class="display-4">Welcome!</h3>
+                                <p class="text-muted mb-4">Please log in to access vet management</p>
+                                <form>
+                                    <label for="inputEmail">Email address</label>
+                                    <div class="form-group mb-3">
+                                        <input id="inputEmail" type="email" placeholder="Email address" required=""
+                                            autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    </div>
+                                    <label for="inputPassword">Password</label>
+                                    <div class="form-group mb-3">
+                                        <input id="inputPassword" type="password" placeholder="Password" required=""
+                                            class="form-control rounded-pill border-0 shadow-sm px-4 mb-3 text-primary">
+                                    </div>
+                                    <div class="text-center d-flex justify-content-center mb-3">
+                                        <a href="#" class="text-muted">
+                                            <u style="text-decoration: none">Forgot Password?</u></a>
+                                    </div>
+                                    <button type="submit"
+                                        class="btn btn-info btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign
+                                        in</button>
+                                    <div class="text-center d-flex justify-content-between mt-4">
+                                        <p>Not a client?<a href="#" class="font-italic text-muted">
+                                                <u>Register</u></a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div><!-- End -->
+
                 </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="validationCustom01">First name</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark"
-                    required>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="validationCustom02">Last name</label>
-                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto"
-                    required>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-            </div>
-        </div>
-        <div class="form-row">
+            </div><!-- End -->
 
         </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                <label class="form-check-label" for="invalidCheck">
-                    Agree to terms and conditions
-                </label>
-                <div class="invalid-feedback">
-                    You must agree before submitting.
-                </div>
-            </div>
-        </div>
-        <button class="btn btn-primary" type="submit">Login</button>
-    </form>
+    </div>
 
 
 
@@ -113,24 +132,5 @@
 {% endblock %}
 
 {% block _javascript %}
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script>
+
 {% endblock %}
