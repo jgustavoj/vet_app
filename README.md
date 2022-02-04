@@ -58,9 +58,7 @@ Node.js is required in this project primarily for Webpack, which bundles and min
 
 		b) type `npm init`
 
-		c) type `npm install socket.io --save`
-
-		d) type `npm install`
+		c) type `npm install`
 	
   	
     * For Mac users and potential issues with No Xcode or CLT version detected, follow the following instructions:
