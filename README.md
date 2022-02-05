@@ -104,7 +104,7 @@ Typically, you should only need `npm run build` to rebuild all static assets. Ho
 -->
 ## Python Setup
 
-1. Install Python.
+1. At the time of development this project was created with python 3.9.2 (recommended), anything higher will cause modifications not explained in this docuemenation. 
 1. (Recommended) Create a new virtual environment for this project, and activate it: Follow this steps: 
 
 - Create environment `venv`
