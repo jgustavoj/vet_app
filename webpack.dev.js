@@ -1,11 +1,7 @@
-const path = require("path");
-const BUNDLERS_PATH = "./static/js/bundlers/";
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common.js");
 
-module.exports = {
+module.exports = merge(common, {
   mode: "development",
-  entry: BUNDLERS_PATH + "ms.mjs",
-  output: {
-    filename: "js/ms.bundle.js",
-    path: path.resolve(__dirname, "static"),
-  },
-};
+  devtool: "eval-source-map",
+});

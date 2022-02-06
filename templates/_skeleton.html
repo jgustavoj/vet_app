@@ -69,6 +69,7 @@ _TITLE (str) None If set, prepends branding in <title> (e.g. Page Title | Brandi
 
     <body class="{{_PAGE|replace('.', '--')}} {{_BODYCLASS}}" data-g-user-id="{{g.user.user_id if g.user}}"
         data-g-user-name="{{g.user.full_name if g.user}}">
+        <h1>HELLO@@</h1>
         {#{% for category, message in get_flashed_messages(with_categories=true) -%}
         {{flash_modal(category, message, loop.index)}}
         {% endfor %}
@@ -76,8 +77,6 @@ _TITLE (str) None If set, prepends branding in <title> (e.g. Page Title | Brandi
         {{error_modal()}} #}
         {% block _modals %}{% endblock %}
         {% block _content %}{% endblock %}
-        {% block body_end %}{% endblock %}
-
         <!-- BS4 and dependencies -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
