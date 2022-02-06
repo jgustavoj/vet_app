@@ -35,7 +35,10 @@ After installation, open the XAMMP control panel and start the Apache and MySQL 
 
 ## Node.js
 
-Node.js is required in this project primarily for Webpack, which bundles and minifies SCSS->CSS and JavaScript.
+At this moment were updating documentation for node.js installation and settings. Skip this step for now as is inclined to speed up production package and assist in development process. But not necessary. 
+
+<!---
+[Node.js is required in this project primarily for Webpack, which bundles and minifies SCSS->CSS and JavaScript.
 
 1. (Recommended) Install [NVM](https://github.com/nvm-sh/nvm) to manage multiple node versions. If using Windows, install [`nvm-windows`](https://github.com/coreybutler/nvm-windows)
     * For `nvm-windows` it is recommended to use the installer found in `nvm-setup.zip` at https://github.com/coreybutler/nvm-windows/releases
@@ -96,10 +99,12 @@ Typically, you should only need `npm run build` to rebuild all static assets. Ho
 * `npm run build`
 
     Build everything. Effectively the same as running `build-dev` and then `build-prod`
+](url)
 
+-->
 ## Python Setup
 
-1. Install Python.
+1. At the time of development this project was created with python 3.9.2 (recommended), anything higher will cause modifications not explained in this docuemenation. 
 1. (Recommended) Create a new virtual environment for this project, and activate it: Follow this steps: 
 
 - Create environment `venv`
