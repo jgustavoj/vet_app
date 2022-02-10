@@ -7,9 +7,8 @@ module.exports = {
     ms: BUNDLERS_PATH + "ms.mjs",
   },
   output: {
-    path: path.resolve(__dirname, "static"),
+    path: path.resolve(__dirname, "dist"),
     filename: "js/[name].bundle.js",
-    clean: true,
   },
   //loaders
   module: {

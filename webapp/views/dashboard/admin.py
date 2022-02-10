@@ -28,18 +28,18 @@ bp = Blueprint('dashboard.admin', __name__)
 
 @bp.route('/', strict_slashes=False)
 def index():
-    # if g.user:
+    # if g.admin:
     return redirect(url_for('.dashboard'))
     # return redirect(url_for('.login'))
 
 @bp.route('/dashboard')
 # @authcheck(authgroups.all)
 def dashboard():
-    return 'This is Dashboard'
+    return render_template('ms/dashboard.html')
 
 @bp.route('/login', methods=['GET'])
 def login():
-    return render_template('dashboard/login.html')
-    # if g.user:
+    return render_template('ms/login.html')
+    # if g.admin:
     #     return redirect(url_for('admin.dashboard'))
     # return render_template('pm/login.html')

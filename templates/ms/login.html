@@ -1,0 +1,73 @@
+{% set _TITLE = 'Sign In' %}
+{% set _BODYCLASS = 'login pt-0' %}
+{% extends '_skeleton.html' %}
+{% from 'macros/forms.html' import youshallseepass %}
+
+{% block _head %}
+<style>
+    .login,
+    .image {
+        min-height: 100vh;
+    }
+
+    .bg-image {
+        background-image: url('../../static/images/white_wall.jpg');
+        background-size: cover;
+        background-position: center center;
+    }
+</style>
+{% endblock %}
+
+{% block _content %}
+<main>
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <!-- The image half -->
+            <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+
+            <!-- The content half -->
+            <div class="col-md-6 bg-light">
+                <div class="login d-flex align-items-center py-5">
+
+                    <!-- Demo content-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 col-xl-7 mx-auto">
+                                <h3 class="display-4">Welcome!</h3>
+                                <p class="text-muted mb-4">Please log in to access vet management</p>
+                                <form>
+                                    <label for="inputEmail">Email address</label>
+                                    <div class="form-group mb-3">
+                                        <input id="inputEmail" type="email" placeholder="Email address" required=""
+                                            autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    </div>
+                                    <label for="inputPassword">Password</label>
+                                    <div class="form-group mb-3">
+                                        <input id="inputPassword" type="password" placeholder="Password" required=""
+                                            class="form-control rounded-pill border-0 shadow-sm px-4 mb-3 text-primary">
+                                    </div>
+                                    <div class="text-center d-flex justify-content-center mb-3">
+                                        <a href="#" class="text-muted">
+                                            <u style="text-decoration: none">Forgot Password?</u></a>
+                                    </div>
+                                    <button type="submit"
+                                        class="btn btn-info btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign
+                                        in</button>
+                                    <div class="text-center d-flex justify-content-between mt-4">
+                                        <p>Not a client?<a href="#" class="font-italic text-muted">
+                                                <u>Register</u></a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div><!-- End -->
+
+                </div>
+            </div><!-- End -->
+
+        </div>
+    </div>
+
+</main>
+{% endblock %}

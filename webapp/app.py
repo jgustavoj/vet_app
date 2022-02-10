@@ -59,6 +59,7 @@ def create_app(config_paths:Iterable[Union[str, Path]]=None, **config_overrides)
 
 
     # Before/after request registration
+    app.before_request(before_request)
 
 
     # Register core function routes
@@ -77,7 +78,7 @@ def before_request():
     g.cloudfront_cache = {}
     g.root_url = current_app.config['DOMAIN']
     g.branding = current_app.config['BRANDING']
-    g.user = None
+    g.admin = None
     # g.today = localize(utcnow(), g.timezone).date() # WARNING Timezone-adjusted. This is for display, not data.
     g.unread_kudos = 0
 

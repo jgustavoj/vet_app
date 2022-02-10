@@ -16,7 +16,7 @@
   \***********************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\nconsole.log(\"HELLO!!!\");\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zdGF0aWMvanMvYnVuZGxlcnMvbXMubWpzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovL3ZldF9hcHAvLi9zdGF0aWMvanMvYnVuZGxlcnMvbXMubWpzPzMwZDUiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc29sZS5sb2coXCJIRUxMTyEhIVwiKTtcclxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./static/js/bundlers/ms.mjs\n");
+eval("__webpack_require__.r(__webpack_exports__);\nconsole.log(\"HELLO!!! x2\");\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zdGF0aWMvanMvYnVuZGxlcnMvbXMubWpzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovL3ZldF9hcHAvLi9zdGF0aWMvanMvYnVuZGxlcnMvbXMubWpzPzMwZDUiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc29sZS5sb2coXCJIRUxMTyEhISB4MlwiKTtcclxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./static/js/bundlers/ms.mjs\n");
 
 /***/ })
 

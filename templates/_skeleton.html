@@ -67,9 +67,8 @@ _TITLE (str) None If set, prepends branding in <title> (e.g. Page Title | Brandi
     Never ever use data-g-user-id to identify a user to the backend.
     #}
 
-    <body class="{{_PAGE|replace('.', '--')}} {{_BODYCLASS}}" data-g-user-id="{{g.user.user_id if g.user}}"
-        data-g-user-name="{{g.user.full_name if g.user}}">
-        <h1>HELLO@@</h1>
+    <body class="{{_PAGE|replace('.', '--')}} {{_BODYCLASS}}" data-g-user-id="{{g.admin.admin_id if g.admin}}"
+        data-g-user-name="{{g.admin.full_name if g.admin}}">
         {#{% for category, message in get_flashed_messages(with_categories=true) -%}
         {{flash_modal(category, message, loop.index)}}
         {% endfor %}

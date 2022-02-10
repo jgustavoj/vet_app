@@ -1,0 +1,30 @@
+{% extends '_skeleton.html' %}
+
+{% block primary_css %}
+{#
+<link rel="stylesheet" href="/css/pm.bundle.min.css?v=20210106"> #}
+{% endblock %}
+
+{% block _head %}{% block head %}{% endblock %}{% endblock %}
+
+{#{% block _modals %}
+{% include 'pm/modals/timesheet.html' %}
+{% include 'pm/modals/kudos.html' %}
+{% block modals %}{% endblock %}
+{% endblock %} #}
+
+{% block _content %}
+{#{% if g.admin %} #} {# Nearly always accessing a page extending from this template means g.admin, #}
+<header>
+    <h1>Navbar</h1>
+</header>
+{#{% endif %} #}
+<main>
+    {% block content %}{% endblock %}
+</main>
+{% endblock %}
+
+{% block _javascript %}
+<script src="/static/js/ms.bundle.js"></script>
+{% block javascript %}{% endblock %}
+{% endblock %}
