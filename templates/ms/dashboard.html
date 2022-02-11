@@ -1,10 +1,117 @@
 {% set _TITLE = 'Dashboard' %}
 {% extends 'ms/_base.html' %}
 
-{% block content %}
 
-<div class="testing-font"> this is the content of the Dashboard</>
+{% block head %}
+<style>
+    body {}
+
+    main {
+        margin-left: 60px;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 60px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: none;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        border-right: 2px solid #f7f7f7;
+    }
+
+
+    #hideNavLinkOnClose {
+        display: none;
+    }
+
+    i {
+        margin-bottom: 3rem;
+
+    }
+
+    .sidenav a {
+        padding: 8px 8px 8px 17px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+    }
+
+    @media screen and (max-height: 550px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div id="mySidenav" class="flex-column d-flex justify-content-center sidenav">
+
+    <div style="font-size:27px;cursor:pointer;color:grey; right:17px;" class="closebtn" type="change"
+        onclick="openNav()">
+        &#9776;
+    </div>
+    <div style="margin-bottom: 6rem !important;"> <a href="#"><i class="fa-solid fa-house fa-sm"></i>
+            <span id="hideNavLinkOnClose">Home</span>
+        </a>
+        <a href="#"><i class="fa-solid fa-user fa-sm"></i>
+            <span id="hideNavLinkOnClose">Clients/Pets</span></a>
+        <a href="#"><i class="fa-solid fa-calendar fa-sm"></i>
+            <span id="hideNavLinkOnClose">Calendar</span></a>
+
+        <a href="#"><i class="fa-solid fa-gears fa-sm"></i>
+            <span id="hideNavLinkOnClose">Settings</span></a>
+
+    </div>
+</div>
+<div id="main">
+    <p>My content</p>
 </div>
 
 
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    let toggle = true;
+    function openNav() {
+        document.getElementById("mySidenav").style.width = toggle ? "250px" : "60px";
+        document.getElementById("main").style.marginLeft = toggle ? "190px" : "";
+        const allLinks = document.querySelectorAll("#hideNavLinkOnClose")
+        for (let i = 0; i < allLinks.length; i++) {
+            allLinks[i].style.display = toggle ? "inline" : "none";
+        }
+        toggle = !toggle
+    }
+</script>
 {% endblock %}
