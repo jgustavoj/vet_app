@@ -49,11 +49,8 @@
     a:hover {
 
         border-radius: 15px;
-        background-color: #59C3C3;
+        background-color: #D2EFEF;
     }
-
-
-
 
 
 
@@ -76,9 +73,11 @@
 
     }
 
-    /*.sidenav a:hover {
-        color: #f1f1f1;
-    } */
+
+    .sidenav a:hover {
+        color: #59C3C3;
+
+    }
 
     .sidenav .closebtn {
         position: absolute;
@@ -86,6 +85,14 @@
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
+    }
+
+    #navbarMarker {
+        visibility: hidden;
+        position: relative;
+        border: 21px solid #59C3C3;
+        left: 72px;
+        top: 42px;
     }
 
     #main {
@@ -114,7 +121,10 @@
         &#9776;
     </div>
     <div class="">
-        <a class="" href="#"><i class="fa-solid fa-house fa-sm"></i>
+        <div id="navbarMarker">
+        </div>
+        <a onmouseover="showrightBorder('navbarMarker')" onmouseout="hiderightBorder('navbarMarker')"
+            style="padding-left:20px;" href=" #"><i class="fa-solid fa-house fa-sm"></i>
             <span id="hideNavLinkOnClose">Home</span>
         </a>
         <a href="#"><i class="fa-solid fa-user fa-sm"></i>
@@ -136,20 +146,55 @@
 </div>
 
 
-
 {% endblock %}
 
 {% block javascript %}
 <script>
     let toggle = true;
+    let sideNav = document.getElementById("mySidenav");
+
     function openNav() {
-        document.getElementById("mySidenav").style.width = toggle ? "250px" : "90px";
+        sideNav.style.width = toggle ? "250px" : "90px";
         document.getElementById("main").style.marginLeft = toggle ? "170px" : "";
+
+        const classes = sideNav.classList.add('open');
+        console.log('CLASSES', sideNav)
+
+
         const allLinks = document.querySelectorAll("#hideNavLinkOnClose")
-        for (let i = 0; i < allLinks.length; i++) {
-            allLinks[i].style.display = toggle ? "inline" : "none";
+        //const allIcons = document.querySelectorAll(".fa-solid")
+        for (let link of allLinks) {
+            link.style.display = toggle ? "inline" : "none";
+            link.style["padding-left"] = toggle ? "10px" : ""
         }
+        //  for (let icon of allIcons) {
+        //      icon.style.display = toggle ? "none" : "inline-block";
+        //     icon.style["padding-left"] = toggle ? "30px" : "20px";
+        //  }
+
         toggle = !toggle
     }
+
+    if (sideNav.contains("open")) {
+        alert("HELLO")
+    }
+
+    let open = document.getElementById("mySidenav").getAttribute("class")
+    console.log("TOGGLE", open)
+
+
+    function showrightBorder(id) {
+        document.getElementById(id).style.visibility = 'visible';
+    };
+    function hiderightBorder(id) {
+        document.getElementById(id).style.visibility = 'hidden';
+
+    }
+
+
+
+
+
+
 </script>
 {% endblock %}
