@@ -4,15 +4,37 @@
 
 {% block head %}
 <style>
-    body {}
+    html {
+        font-size: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: black;
+        line-height: 1.3;
+        overflow-x: hidden;
+    }
 
     main {
-        margin-left: 60px;
+        margin-left: 90px;
     }
 
     .sidenav {
         height: 100%;
-        width: 60px;
+        width: 90px;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -24,28 +46,39 @@
         border-right: 2px solid #f7f7f7;
     }
 
+    a:hover {
+
+        border-radius: 15px;
+        background-color: #59C3C3;
+    }
+
+
+
+
+
 
     #hideNavLinkOnClose {
         display: none;
     }
 
-    i {
+    a {
         margin-bottom: 3rem;
 
     }
 
     .sidenav a {
-        padding: 8px 8px 8px 17px;
+        padding: 20px 15px 20px 22px;
         text-decoration: none;
-        font-size: 25px;
-        color: #818181;
+        font-size: 21px;
+        color: #a2a2a2;
         display: block;
-        transition: 0.3s;
+        transition: 0.1s;
+
     }
 
-    .sidenav a:hover {
+    /*.sidenav a:hover {
         color: #f1f1f1;
-    }
+    } */
 
     .sidenav .closebtn {
         position: absolute;
@@ -57,7 +90,7 @@
 
     #main {
         transition: margin-left .5s;
-        padding: 16px;
+        /*padding: 16px; */
     }
 
     @media screen and (max-height: 550px) {
@@ -74,17 +107,22 @@
 
 
 {% block content %}
-<div id="mySidenav" class="flex-column d-flex justify-content-center sidenav">
+<div id="mySidenav" class="flex-column d-flex justify-content-center align-items-center sidenav">
 
     <div style="font-size:27px;cursor:pointer;color:grey; right:17px;" class="closebtn" type="change"
         onclick="openNav()">
         &#9776;
     </div>
-    <div style="margin-bottom: 6rem !important;"> <a href="#"><i class="fa-solid fa-house fa-sm"></i>
+    <div class="">
+        <a class="" href="#"><i class="fa-solid fa-house fa-sm"></i>
             <span id="hideNavLinkOnClose">Home</span>
         </a>
         <a href="#"><i class="fa-solid fa-user fa-sm"></i>
-            <span id="hideNavLinkOnClose">Clients/Pets</span></a>
+            <span id="hideNavLinkOnClose">Clients</span></a>
+
+        <a href="#"><i class="fa-solid fa-paw fa-sm"></i>
+            <span id="hideNavLinkOnClose">Pets</span></a>
+
         <a href="#"><i class="fa-solid fa-calendar fa-sm"></i>
             <span id="hideNavLinkOnClose">Calendar</span></a>
 
@@ -105,8 +143,8 @@
 <script>
     let toggle = true;
     function openNav() {
-        document.getElementById("mySidenav").style.width = toggle ? "250px" : "60px";
-        document.getElementById("main").style.marginLeft = toggle ? "190px" : "";
+        document.getElementById("mySidenav").style.width = toggle ? "250px" : "90px";
+        document.getElementById("main").style.marginLeft = toggle ? "170px" : "";
         const allLinks = document.querySelectorAll("#hideNavLinkOnClose")
         for (let i = 0; i < allLinks.length; i++) {
             allLinks[i].style.display = toggle ? "inline" : "none";
