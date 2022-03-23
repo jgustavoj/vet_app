@@ -35,7 +35,9 @@ def index():
 @bp.route('/dashboard')
 # @authcheck(authgroups.all)
 def dashboard():
-    return render_template('ms/dashboard.html')
+    admin = models.User.query.all()
+
+    return render_template('ms/dashboard.html', admin=admin)
 
 @bp.route('/login', methods=['GET'])
 def login():
@@ -43,3 +45,4 @@ def login():
     # if g.admin:
     #     return redirect(url_for('admin.dashboard'))
     # return render_template('pm/login.html')
+    ip_case = models.Case.query.filter_by(case_id=request.form.get('ip_case_id')).first()

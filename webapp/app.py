@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import Iterable, Union
 from werkzeug.exceptions import NotFound
 
-from . import models, views
+from . import models, views, jinja_filters
 # from .utils.auth import authgroups, permissiongroups, unauthorize
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -46,6 +46,7 @@ def create_app(config_paths:Iterable[Union[str, Path]]=None, **config_overrides)
 
 
     # Filters
+    app.register_blueprint(jinja_filters.bp)
 
 
 

@@ -32,6 +32,73 @@
         margin-left: 90px;
     }
 
+
+    label {
+        display: flex;
+        flex-direction: column;
+        width: 70px;
+        cursor: pointer;
+    }
+
+    label span {
+        background: lightgray;
+        border-radius: 10px;
+        height: 3px;
+        margin: 5px 0px 4px 0px;
+        margin-left: 43px;
+        transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+    }
+
+
+    span:nth-of-type(1) {
+        width: 25%;
+
+    }
+
+    span:nth-of-type(2) {
+        width: 50%;
+        display: relative;
+    }
+
+
+    span:nth-of-type(3) {
+        width: 35%;
+
+    }
+
+
+    input[type="checkbox"] {
+        position: absolute;
+        top: 4px;
+        left: 26px;
+        height: 44px;
+        width: 64px;
+        z-index: 10;
+        opacity: 0;
+    }
+
+
+    input[type="checkbox"]:checked~span:nth-of-type(1) {
+        transform-origin: top;
+        width: 50%;
+        transform: rotate(-45deg) translate(-8px, 9px);
+    }
+
+
+    input[type="checkbox"]:checked~span:nth-of-type(2) {
+        display: none;
+    }
+
+
+    input[type="checkbox"]:checked~span:nth-of-type(3) {
+
+        transform-origin: bottom;
+        width: 50%;
+        transform: rotate(45deg) translate(1px, -3px)
+    }
+
+
     .sidenav {
         height: 100%;
         width: 90px;
@@ -98,6 +165,12 @@
     #main {
         transition: margin-left .5s;
         /*padding: 16px; */
+
+    }
+
+    .user {
+        margin: 5rem 0 0 5rem;
+
     }
 
     @media screen and (max-height: 550px) {
@@ -116,15 +189,20 @@
 {% block content %}
 <div id="mySidenav" class="flex-column d-flex justify-content-center align-items-center sidenav">
 
-    <div style="font-size:27px;cursor:pointer;color:grey; right:17px;" class="closebtn" type="change"
-        onclick="openNav()">
-        &#9776;
+    <div style="font-size:27px;cursor:pointer;color:grey; right:29px; margin-top: 2.5rem" class="closebtn"
+        type="change">
+        <label for="check">
+            <input type="checkbox" id="check" onclick="openNav()" />
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
     </div>
-    <div class="">
+    <div>
         <div id="navbarMarker">
         </div>
-        <a onmouseover="showrightBorder('navbarMarker')" onmouseout="hiderightBorder('navbarMarker')"
-            style="padding-left:20px;" href=" #"><i class="fa-solid fa-house fa-sm"></i>
+
+        <a style="padding-left:20px;" href=" #"><i class="fa-solid fa-house fa-sm"></i>
             <span id="hideNavLinkOnClose">Home</span>
         </a>
         <a href="#"><i class="fa-solid fa-user fa-sm"></i>
@@ -142,7 +220,35 @@
     </div>
 </div>
 <div id="main">
-    <p>My content</p>
+    <div class="user">
+        {% for user in admin %}
+        <h2> Hello, {{user.first_name | capitalize}}!</h2>
+        {% endfor %}
+
+        <div class="d-flex flex-row">
+            <div class="d-flex flex-column">
+                <div class="card mb-3 me-3" style="width: 18rem;">
+                    <div class="card-body"><i class="fa-solid fa-circle-plus"></i>
+                    </div>
+                    Create New Patient
+                </div>
+                <div class="card mb-3 me-3" style="width: 18rem;">
+                    <i class="fa-solid fa-calendar"></i>
+                    Create New Appointment
+                </div>
+            </div>
+            <div class="d-flex flex-column">
+                <div class="card mb-3 me-3" style="width: 18rem;">
+                    <i class="fa-solid fa-tags"></i>
+                    Create New Sale
+                </div>
+                <div class="card mb-3 me-3" style="width: 18rem;">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Montly Report
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -151,50 +257,21 @@
 {% block javascript %}
 <script>
     let toggle = true;
-    let sideNav = document.getElementById("mySidenav");
+    const sideNav = document.getElementById("mySidenav");
 
     function openNav() {
         sideNav.style.width = toggle ? "250px" : "90px";
         document.getElementById("main").style.marginLeft = toggle ? "170px" : "";
 
-        const classes = sideNav.classList.add('open');
-        console.log('CLASSES', sideNav)
-
 
         const allLinks = document.querySelectorAll("#hideNavLinkOnClose")
-        //const allIcons = document.querySelectorAll(".fa-solid")
-        for (let link of allLinks) {
+        for (const link of allLinks) {
             link.style.display = toggle ? "inline" : "none";
             link.style["padding-left"] = toggle ? "10px" : ""
         }
-        //  for (let icon of allIcons) {
-        //      icon.style.display = toggle ? "none" : "inline-block";
-        //     icon.style["padding-left"] = toggle ? "30px" : "20px";
-        //  }
 
         toggle = !toggle
     }
-
-    if (sideNav.contains("open")) {
-        alert("HELLO")
-    }
-
-    let open = document.getElementById("mySidenav").getAttribute("class")
-    console.log("TOGGLE", open)
-
-
-    function showrightBorder(id) {
-        document.getElementById(id).style.visibility = 'visible';
-    };
-    function hiderightBorder(id) {
-        document.getElementById(id).style.visibility = 'hidden';
-
-    }
-
-
-
-
-
 
 </script>
 {% endblock %}
