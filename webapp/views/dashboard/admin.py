@@ -23,7 +23,7 @@ from sqlalchemy import func, or_
 from ... import ERROR_MESSAGES, models
 
 
-bp = Blueprint('dashboard.admin', __name__)
+bp = Blueprint('admin', __name__)
 
 
 @bp.route('/', strict_slashes=False)
