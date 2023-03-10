@@ -52,7 +52,8 @@ def create_app(config_paths:Iterable[Union[str, Path]]=None, **config_overrides)
 
     # View blueprints
     app.register_blueprint(views.public.bp)
-    app.register_blueprint(views.dashboard.admin.bp, url_prefix='/admin')
+    app.register_blueprint(views.home.home.bp, url_prefix='/home')
+    app.register_blueprint(views.clients.clients.bp, url_prefix='/clients')
     app.register_blueprint(views.setup.bp, url_prefix='/setup')
 
 

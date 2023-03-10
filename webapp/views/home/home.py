@@ -23,7 +23,7 @@ from sqlalchemy import func, or_
 from ... import ERROR_MESSAGES, models
 
 
-bp = Blueprint('admin', __name__)
+bp = Blueprint('home', __name__)
 
 
 @bp.route('/', strict_slashes=False)
@@ -37,7 +37,7 @@ def index():
 def dashboard():
     admin = models.User.query.all()
 
-    return render_template('ms/dashboard.html', admin=admin)
+    return render_template('ms/home_dashboard.html', admin=admin)
 
 @bp.route('/login', methods=['GET'])
 def login():
